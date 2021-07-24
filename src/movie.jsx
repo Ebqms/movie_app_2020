@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.section`
   background-color: white;
@@ -10,7 +11,7 @@ const Wrapper = styled.section`
   border-radius: 5px;
   color: #adaeb9;
   box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
-    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6 16px -6 rgba(0, 0, 0, 0.025);
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
 
   a {
     display: grid;
@@ -65,6 +66,8 @@ const Wrapper = styled.section`
 function Movie({ title, year, summary, poster, genres }) {
   return (
     <Wrapper>
+      <Link
+      to={{pathname:'/movie-detail', state:{year, title, summary, poster, genres}}}>
       <img src={poster} alt="" />
       <div className="movie__data">
         <h3>{title}</h3>
@@ -80,6 +83,7 @@ function Movie({ title, year, summary, poster, genres }) {
           })}
         </ul>
       </div>
+      </Link>
     </Wrapper>
   );
 }
