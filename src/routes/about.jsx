@@ -22,7 +22,8 @@ const Wrapper = styled.section`
     }
 `;
 
-function About() {
+function About(p) {
+    console.log(p)
     return (
         <Wrapper>
             <span>"Freedom is the freedom to say that two plus two make four. If that is granted, all else follows."</span>

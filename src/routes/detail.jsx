@@ -1,17 +1,29 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
-const Wrapper = styled.section`
+const Wrapper = styled.section``;
 
-`;
+class Detail extends React.Component {
+  componentDidMount() {
+    const { location, history } = this.props;
+    if (location.state === undefined) {
+      history.push("/");
+    }
+  }
 
-function Detail(p) {
-    console.log(p);
+  render() {
+      const {location} = this.props;
+      if (location.state){
+
     return (
-        <Wrapper>
-            <span>hello</span>
-        </Wrapper>
-    )
+      <Wrapper>
+        <span>{location.state.title}</span>
+      </Wrapper>
+    );
+      } else {
+          return null;
+      }
+  }
 }
 
-export default Detail
+export default Detail;
